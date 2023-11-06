@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pretty-checkbox.min.css">
+    <title>التقديم فى المسابقة</title>
+</head>
+<body>
+    
+
+    <div class="my-form container p-5 my-5 rounded border border-warning">
+        <form>
+            <h2 class="text-center">التقديم فى المسابقة</h2>
+            <hr>
+			<div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputFirstName">الأسم الأول</label>
+                    <input type="text"  readonly class="form-control-plaintext border border-warning rounded" id="inputFirstName" >
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputLastName">إسم الأب</label>
+                    <input type="text"  readonly class="form-control-plaintext border border-warning rounded" id="inputLastName" >
+                </div> 
+				<div class="form-group col-md-4">
+                    <label for="inputLastName">اللقب</label>
+                    <input type="text"  readonly class="form-control-plaintext border border-warning rounded" id="inputLastName" >
+                </div>
+            </div>
+            <div class="form-row">  
+				<div class="form-group col-md-4">
+					<label for="mohafez" class="control-label">الشيخ المحفظ</label><br>
+					<select class="form-select col-md-10" required >
+						<option value="1">الشيخ محمد حامد</option>
+						<option value="2">الشيخ محمد ابراهيم</option>
+						<option value="2">الشيخ أحمد أسامة </option>
+						<option value="2"> الشيخ هيثم </option>
+						<option value="2"> الشيخ أحمد أسامة </option>
+					</select>
+				
+				</div>				
+				<div class="form-group col-md-4">
+					<label for="address" class="control-label">البلد</label><br>
+					<select class="form-select col-md-10" required >
+						<option value="1">القيصرية</option>
+						<option value="2">بطينة</option>
+						<option value="2">محلة أبوعلي</option>
+						<option value="2"> عزبة كامل</option>
+						<option value="2"> أخرى </option>
+					</select>				
+				</div>
+				<div class="form-group   col-md-4"    >
+					<label for="NOof_juze" class="control-label "> عدد الأجزاء</label><br>
+					<select class="form-select  col-md-10" required >
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="30">30</option>				
+						<option value="30">30مع التجويد</option>				
+					</select>			
+				</div>
+
+				
+            </div>
+               
+			
+
+			
+				<div class="form-row">
+				<div class="form-group col-md-4">
+                    <label for="nationalid">الرقم القومى</label>
+                    <input type="text" class="form-control col-md-10 " id="nationalid"  placeholder="أدخل الرقم القومى كما فى البطاقة أو شهادة الميلاد" required >
+                </div>
+               
+				
+				<div class="form-group col-md-4">
+                    <label for="telephone">رقم التلفون الأول</label>
+                    <input type="text" class="form-control col-md-10 " id="telephone"  placeholder="أدخل رقم الموبايل الخاص بك أو باقرب الأقارب" required >
+                </div>	
+				<div class="form-group col-md-4">
+                    <label for="telephone">رقم التلفون الثانى</label>
+                    <input type="text" class="form-control col-md-10 " id="telephone"  placeholder="أدخل رقم الموبايل الخاص بك أو باقرب الأقارب" required >
+                </div>
+                </div>							
+<!-- 			<div class="form-row">			
+			<label for="img">تحميل صورة شخصية:</label>
+			<input type="file" id="img" name="img" accept="image/*" required>
+			</div>	 -->
+			<br>
+			<br>  
+			<button type="submit" class="btn btn-warning"  >حفظ وتسجيل</button>
+        </form>
+
+
+    </div>
+
+    <script src="js/jquery-3.4.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
