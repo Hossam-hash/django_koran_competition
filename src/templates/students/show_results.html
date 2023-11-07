@@ -1,0 +1,120 @@
+{% extends 'base.html'%}
+{% block content%}
+
+
+
+    <div class="my-form container p-5 my-5 rounded border border-warning">
+        <form>
+            <h2 class="text-center">النتيجة</h2>
+            <hr>
+
+           
+			<div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputFirstName">إسم المتسابق</label>
+                    <input type="text" readonly class="form-control-plaintext border border-warning rounded"  id="inputFirstName" >
+                </div> 
+				<div class="form-group col-md-6">
+                    <label for="inputFirstName">إسم الشيخ المحفظ</label>
+                    <input type="text" readonly class="form-control-plaintext border border-warning rounded"  id="inputFirstName" >
+                </div>
+                
+		
+			</div>
+			<div class="form-row">
+               
+                <div class="form-group col-md-6">
+                    <label for="inputLastName">عدد الأجزاء</label>
+                    <input type="text" readonly class="form-control-plaintext border border-warning rounded"  id="inputLastName" >
+                </div> 
+				 <div class="form-group col-md-6">
+                    <label for="inputLastName">النتيجة</label>
+                    <input type="text" readonly class="form-control-plaintext border border-warning rounded"  id="inputLastName" >
+                </div> 
+		
+			</div>
+ 
+
+        </form>
+
+    </div>
+
+	<div class="my-form container p-5 my-5 rounded border border-warning">
+		<form>
+			<h2 class="text-center">النتائج</h2>
+			<hr>
+
+			<section>
+				<div class="container-fluid">
+					<div class="row p-5 my-3 ">
+						<table  style="width:100%">
+							<tr>
+								<th style="width:5%">م</th>
+								<th>الأسم</th>
+								<th>إسم الشيخ المحفظ</th>
+								<th>عدد الأجزاء</th>
+								<th>السنة</th>
+								<th>النتيجة</th>
+								
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>Data 1,2</td>
+								<td>Data 1,3</td>
+								<td>Data 1,4</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Data 2,2</td>
+								<td>Data 2,3</td>
+								<td>Data 2,4</td>
+								<td></td>
+								<td></td>
+							</tr>
+							
+							
+						</table>
+					</div>
+				</div>
+			</section>
+		</form>
+	</div>
+
+        <form>
+            <h2 class="text-center">تسجيل الدخول</h2>
+            <hr>
+
+            <div class="form-group">
+                <label for="inputUsername">إسم المستخدم</label>
+                <input type="text" class="form-control" id="inputUsername" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">الرقم السرى</label>
+                <input type="password" class="form-control" id="inputPassword" required>
+            </div>
+
+            <div class="form-group">
+                <div class="pretty p-svg p-curve p-jelly">
+                    <input type="checkbox" id="inputTerms" />
+                    <div class="state p-warning">
+                        <!-- svg path -->
+                        <svg class="svg svg-icon" viewBox="0 0 20 20">
+                           
+						   <path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path>
+                        </svg>
+                        <label for="inputTerms" style="margin-left:30px;">تذكرنى </label>
+
+                    </div>
+                </div>
+            </div>
+			
+			
+            <button type="submit" class="btn btn-warning">دخول</button>
+        </form>
+
+    </div>
+
+
+{%endblock%}
