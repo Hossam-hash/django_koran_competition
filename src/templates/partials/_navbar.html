@@ -1,7 +1,7 @@
     {% load static %}
 	<!--navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top"  >
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'img/logo1.jpg'%}" class="img-brand" alt="compitation">
             مسابقة القران الكريم
         </a>
@@ -10,20 +10,82 @@
         </button>
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav " >
+            <ul class="navbar-nav "  >
+				 
+			<!-- 	 <li 
+				  {% if '/' == request.path %}
+				   class="nav-item active"  
+				  {% else %}
+				  class="nav-item " 
+				  {%endif%}
+				  id="nav-item"
+				 > -->
+				 
+				 
+				 <li 
+				  {% if 'signin' in request.path or 'signup' in request.path or 'profile' in request.path%}
+				   class="nav-item dropdown active"
+				  {% else %}
+				  class="nav-item dropdown"
+				  {%endif%}
+				 
+				 >
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                تسجيل الدخول
+                </a>
+                <div class="dropdown-menu animate slideIn" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'signin'%}">التسجيل</a>
+                <a class="dropdown-item" href="{% url 'signup'%}">تسجيل الدخول</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'profile'%}">الصفحة الشخصية</a>
+                </div>
+				</li>
 
-
-              <li class="nav-item" >
-                <a class="nav-link" href="#" >الطلاب</a>
+              <li 
+				  {% if 'search' in request.path %}
+				   class="nav-item active"  
+				  {% else %}
+				  class="nav-item " 
+				  {%endif%}
+				  id="nav-item"
+				 >
+                <a class="nav-link" href="{% url 'search'%}" ><strong>الطلاب</strong> </a>
               </li>
-              <li class="nav-item" id="nav-item"  >
-                  <a class="nav-link" href="apply_for_comptation.html"><strong> التقديم فى المسابقة</strong>  </a>
+              
+              <li 
+				  {% if 'apply_compition' in request.path %}
+				   class="nav-item active"  
+				  {% else %}
+				  class="nav-item "  
+				  {%endif%}
+				 id="nav-item"
+				 >
+                  <a class="nav-link" href="{% url 'apply_compition'%}"><strong> التقديم فى المسابقة</strong>  </a>
               </li> 
 			  <li class="x">
                 <a class="nav-link" href="#"></a>
               </li>
-			  <li class="nav-item" id="nav-item">
-                  <a class="nav-link" href="#"><strong> نتيجــة المسابقة</strong>  </a>
+               
+              <li 
+				  {% if 'enter_results' in request.path %}
+				   class="nav-item active"  
+				  {% else %}
+				  class="nav-item "  
+				  {%endif%}
+				 id="nav-item"
+				 >
+                  <a class="nav-link" href="{% url 'enter_results'%}"><strong> إدخال النتائج </strong>  </a>
+              </li>
+			  
+              <li 
+				  {% if 'show_results' in request.path %}
+				   class="nav-item active"  
+				  {% else %}
+				  class="nav-item "  
+				  {%endif%}
+				 id="nav-item"
+				 >
+                  <a class="nav-link" href="{% url 'show_results'%}"><strong> نتيجــة المسابقة</strong>  </a>
               </li>
 
             </ul>
