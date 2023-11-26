@@ -1,50 +1,67 @@
 {% extends 'base.html'%}
+{%block title%} | الصفحة الشخصية{%endblock%}
+
 {% block content%}
 
  
     <div class="my-form container p-5 my-5 rounded border border-warning">
-        <form>
-            <h2 class="text-center">الصفحة الشخصية</h2>
+        <h2 class="text-center">الصفحة الشخصية</h2>
             <hr>
+
+    {% if request.user.is_authenticated %}
+        <form method="POST">
+             {% csrf_token %}
+
+
+             {% include 'partials/_alerts.html'%}
+
+
 
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputFirstName">الأسم الأول</label>
-                    <input type="text" class="form-control" id="inputFirstName" required>
+                    <input type="text" class="form-control" name="fname" id="inputFirstName" required value="{{fname}}">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputLastName">إسم الأب</label>
-                    <input type="text" class="form-control" id="inputLastName" required>
+                    <input type="text" class="form-control" name="secname" id="inputsecName" required value="{{secname}}">
                 </div> 
 				<div class="form-group col-md-4">
                     <label for="inputLastName">اللقب</label>
-                    <input type="text" class="form-control" id="inputLastName" required>
+                    <input type="text" class="form-control" name="thirdname" id="inputLastName" required value="{{thirdname}}">
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="inputAddress">العنوان</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+                <input type="text" class="form-control" id="inputAddress" name="address" placeholder="1234 Main St" required value="{{address}}">
             </div>
 
             <div class="form-group">
                 <label for="inputEmail">البريد الإلكترونى</label>
-                <input type="email"  class="form-control" id="inputEmail" placeholder="name@example.com" required>
+                <input type="email" readonly  class="form-control" id="inputEmail" name="email" placeholder="name@example.com" required value="{{email}}">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputUsername">إسم المستخدم</label>
-                    <input type="text" readonly class="form-control-plaintext border border-warning rounded" id="inputUsername" placeholder="ahmed" required>
+                    <input type="text" readonly class="form-control-plaintext border border-warning rounded"  name="username" id="inputUsername" placeholder="ahmed" required value="{{username}}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword">الرقم السرى</label>
-                    <input type="password" class="form-control" id="inputPassword" required>
+                    <input type="password" class="form-control" name="password" id="inputPassword" required value="{{password}}">
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-warning">حفظ التغيرات</button>
+            <button type="submit" name="btnprofsave" class="btn btn-warning">حفظ التغيرات</button>
         </form>
-
+    {%else%}
+        <h4 class="alert alert-danger">
+            يجب عليك أولا
+            <a href="{%url 'signin'%}" class="text-dark">
+                تسجيل الدخول
+            </a>
+        </h4>
+    {%endif%}
 
     </div>
 

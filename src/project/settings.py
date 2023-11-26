@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     #my app
     'students',
     'home',
+    'phonenumber_field',
     'comptition_history',
     'comptition_rules',
 ]
@@ -82,8 +83,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'compdb',
+        'USER': 'postgres',
+        'PASSWORD': 'Hossam110',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -118,6 +123,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+FONT_ROOT=os.path.join(BASE_DIR,'font')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -128,5 +134,10 @@ STATICFILES_DIRS=[os.path.join(BASE_DIR,'project/static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+from django.contrib.messages import constants as messages
+# Custom messages
+MESSAGE_TAGS = {
+    messages.ERROR: "danger",
 
+}
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

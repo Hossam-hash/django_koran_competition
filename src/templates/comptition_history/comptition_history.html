@@ -1,18 +1,15 @@
 {% extends 'base.html'%}
+{%block title%} | تاريخ المسابقة{%endblock%}
+
 {% block content%}
 
 
     <div class="my-content container p-5 my-5 rounded border border-warning">
         <h2 class="text-center">تـاريــخ المسابقة</h2>
         <hr>
-        <p>بدأت المسابقة سنة 2000</p>
-        <p>تخرج منها أجيال كثيرة</p>
-        <p>معلومات</p>
-        <p>معلومات</p>
-        <p>معلومات</p>
-        <p>معلومات</p>
-        <p>معلومات</p>
-        <p>معلومات</p>
-      
+        {%for hist in history %}
+             <p>{{hist.history}}</p>
+        {%endfor%}
+
     </div>
 {%endblock%}

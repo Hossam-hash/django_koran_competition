@@ -1,50 +1,55 @@
 {% extends 'base.html'%}
+{%block title%} | التقديم فى المسابقة{%endblock%}
+
 {% block content%}
 
 
     <div class="my-form container p-5 my-5 rounded border border-warning">
-        <form>
+        <form method="POST">
+             {% csrf_token %}
             <h2 class="text-center">التقديم فى المسابقة</h2>
             <hr>
+
+			{% include 'partials/_alerts.html'%}
+
+
 			<div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputFirstName">الأسم الأول</label>
-                    <input type="text"  readonly class="form-control-plaintext border border-warning rounded" id="inputFirstName" >
+                    <input type="text"  readonly class="form-control-plaintext border border-warning rounded" name="fname" id="inputFirstName" >
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputLastName">إسم الأب</label>
-                    <input type="text"  readonly class="form-control-plaintext border border-warning rounded" id="inputLastName" >
+                    <input type="text"  readonly class="form-control-plaintext border border-warning rounded" name="secname" id="inputsecName" >
                 </div> 
 				<div class="form-group col-md-4">
                     <label for="inputLastName">اللقب</label>
-                    <input type="text"  readonly class="form-control-plaintext border border-warning rounded" id="inputLastName" >
+                    <input type="text"  readonly class="form-control-plaintext border border-warning rounded" name="lname" id="inputLastName" >
                 </div>
             </div>
             <div class="form-row">  
 				<div class="form-group col-md-4">
-					<label for="mohafez" class="control-label">الشيخ المحفظ</label><br>
-					<select class="form-select col-md-10" required >
-						<option value="1">الشيخ محمد حامد</option>
-						<option value="2">الشيخ محمد ابراهيم</option>
-						<option value="2">الشيخ أحمد أسامة </option>
-						<option value="2"> الشيخ هيثم </option>
-						<option value="2"> الشيخ أحمد أسامة </option>
+					<label for="nameshekmohafez"  class="control-label">الشيخ المحفظ</label><br>
+					<select class="form-select col-md-10" id="nameshekmohafez" name="nameshekmohafez" required >
+						{% for item in shekh_mohafez %}
+						<option value="{{item.user.id}}">{{item.user.first_name}} {{item.user.last_name}}</option>
+						{%endfor%}
 					</select>
-				
-				</div>				
+
+				</div>
 				<div class="form-group col-md-4">
-					<label for="address" class="control-label">البلد</label><br>
-					<select class="form-select col-md-10" required >
+					<label for="country" class="control-label">البلد</label><br>
+					<select class="form-select col-md-10" id="country" name="country" required >
 						<option value="1">القيصرية</option>
 						<option value="2">بطينة</option>
 						<option value="2">محلة أبوعلي</option>
 						<option value="2"> عزبة كامل</option>
 						<option value="2"> أخرى </option>
-					</select>				
+					</select>
 				</div>
 				<div class="form-group   col-md-4"    >
-					<label for="NOof_juze" class="control-label "> عدد الأجزاء</label><br>
-					<select class="form-select  col-md-10" required >
+					<label for="noofjuze" class="control-label "> عدد الأجزاء</label><br>
+					<select class="form-select  col-md-10" id="noofjuze" name="noofjuze" required >
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -70,31 +75,31 @@
 						<option value="23">23</option>
 						<option value="24">24</option>
 						<option value="25">25</option>
-						<option value="30">30</option>				
-						<option value="30">30مع التجويد</option>				
-					</select>			
+						<option value="30">30</option>
+						<option value="30">30مع التجويد</option>
+					</select>
 				</div>
 
-				
-            </div>
-               
-			
 
-			
+            </div>
+
+
+
+
 				<div class="form-row">
 				<div class="form-group col-md-4">
                     <label for="nationalid">الرقم القومى</label>
-                    <input type="text" class="form-control col-md-10 " id="nationalid"  placeholder="أدخل الرقم القومى كما فى البطاقة أو شهادة الميلاد" required >
+                    <input type="text" class="form-control col-md-10 " id="nationalid" name="nationalid"  placeholder="أدخل الرقم القومى كما فى البطاقة أو شهادة الميلاد" required >
                 </div>
-               
-				
+
+
 				<div class="form-group col-md-4">
-                    <label for="telephone">رقم التلفون الأول</label>
-                    <input type="text" class="form-control col-md-10 " id="telephone"  placeholder="أدخل رقم الموبايل الخاص بك أو باقرب الأقارب" required >
+                    <label for="telephone1">رقم التلفون الأول</label>
+                    <input type="text" class="form-control col-md-10 " id="telephone1" name="telephone1"  placeholder="أدخل رقم الموبايل الخاص بك أو باقرب الأقارب" required >
                 </div>	
 				<div class="form-group col-md-4">
-                    <label for="telephone">رقم التلفون الثانى</label>
-                    <input type="text" class="form-control col-md-10 " id="telephone"  placeholder="أدخل رقم الموبايل الخاص بك أو باقرب الأقارب" required >
+                    <label for="telephone2">رقم التلفون الثانى</label>
+                    <input type="text" class="form-control col-md-10 " id="telephone2" name="telephone2"  placeholder="أدخل رقم الموبايل الخاص بك أو باقرب الأقارب" required >
                 </div>
                 </div>							
 <!-- 			<div class="form-row">			
@@ -103,7 +108,7 @@
 			</div>	 -->
 			<br>
 			<br>  
-			<button type="submit" class="btn btn-warning"  >حفظ وتسجيل</button>
+			<button type="submit" name="btnapply" class="btn btn-warning"  >حفظ وتسجيل</button>
         </form>
 
 
